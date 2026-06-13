@@ -31,9 +31,9 @@ public class bankController {
         return bankservice.getAccountById(id);
     }
 
-    @GetMapping("/accounts")
+   /* @GetMapping("/accounts")
     public List<Account> getAllAccounts() {
 
         return bankservice.getAllAccounts();
-    }
+    }*/
 }
