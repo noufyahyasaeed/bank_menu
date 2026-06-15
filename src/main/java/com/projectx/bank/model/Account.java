@@ -8,21 +8,37 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
 @Entity
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    private String accountNumber;
     private String name;
-    private double balance;
+    private BigDecimal balance;
 
     public Account() {
     }
 
-    public Account(int id, String name, double balance) {
+    public Account(int id, String name, BigDecimal balance) {
         this.id = id;
         this.name = name;
+        this.balance = balance;
+    }
+    public Account(String accountNumber, BigDecimal balance) {
+        this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
@@ -42,11 +58,11 @@ public class Account {
         this.name = name;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
